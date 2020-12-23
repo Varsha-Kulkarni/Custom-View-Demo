@@ -8,4 +8,52 @@
     tools:context=".DetailActivity"
     tools:showIn="@layout/activity_detail">
 
+    <TextView
+        android:id="@+id/tv_label_filename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_filename"
+        android:layout_margin="@dimen/detail_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_filename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text = "@string/loadapp_option"
+        android:layout_margin="@dimen/detail_margin"
+        app:layout_constraintStart_toEndOf="@id/tv_label_filename"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_label_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_status"
+        android:layout_margin="@dimen/detail_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_filename" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text = "@string/status_string"
+        android:layout_margin="@dimen/detail_margin"
+        app:layout_constraintStart_toEndOf="@id/tv_label_filename"
+        app:layout_constraintTop_toBottomOf="@id/tv_filename"/>
+
+    <Button
+        android:id="@+id/custom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detail_margin"
+        android:text="@string/ok_string"
+        android:textColor="@color/white"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
