@@ -8,8 +8,12 @@
     <string name="notification_description">The Project 3 repository is downloaded</string>
     <string name="notification_button">See changes</string>
 
-    <string name="button_name">Click me</string>
+    <string name="notification_channel_id" translatable="false">load_status_channel</string>
+    <string name="notification_channel_name" translatable="true">load_status_completed</string>
+
+    <string name="button_name">Download</string>
     <string name="button_loading">We are loading </string>
+
     <string name="title_activity_detail">DetailActivity</string>
     <string name="glide_option">Glide - Image Loading Library by Bumtech</string>
     <string name="loadapp_option">LoadApp - Current repository by Udacity</string>
@@ -17,6 +21,7 @@
     <string name="cloud_string">Cloud Image indicating Download action</string>
     <string name="label_filename">Filename:</string>
     <string name="label_status">Status:</string>
-    <string name="status_string">Fail</string>
-    <string name="ok_string">OK</string>
+    <string name="status_string">Failed</string>
+    <string name="select_download_file">Select file to download</string>
+    <string name="downloaded">Downloaded</string>
 </resources>

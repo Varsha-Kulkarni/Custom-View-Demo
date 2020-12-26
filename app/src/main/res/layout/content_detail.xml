@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".DetailActivity"
+    tools:context=".ui.DetailActivity"
     tools:showIn="@layout/activity_detail">
 
     <TextView
         android:id="@+id/tv_label_filename"
+        style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_filename"
@@ -19,7 +20,8 @@
 
     <TextView
         android:id="@+id/tv_filename"
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         tools:text = "@string/loadapp_option"
         android:layout_margin="@dimen/detail_margin"
@@ -28,28 +30,33 @@
 
     <TextView
         android:id="@+id/tv_label_status"
+        style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_status"
-        android:layout_margin="@dimen/detail_margin"
+        android:layout_marginTop="@dimen/detail_margin_top"
+        android:layout_marginStart="@dimen/detail_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_label_filename" />
 
     <TextView
         android:id="@+id/tv_status"
+        style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text = "@string/status_string"
-        android:layout_margin="@dimen/detail_margin"
+        android:layout_marginTop="@dimen/detail_margin_top"
+        android:layout_marginStart="@dimen/detail_margin"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_label_status"
         app:layout_constraintStart_toEndOf="@id/tv_label_filename"
         app:layout_constraintTop_toBottomOf="@id/tv_filename"/>
 
     <Button
-        android:id="@+id/custom_button"
+        android:id="@+id/btn_ok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/detail_margin"
-        android:text="@string/ok_string"
+        android:text="@android:string/ok"
         android:textColor="@color/white"
         android:background="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
