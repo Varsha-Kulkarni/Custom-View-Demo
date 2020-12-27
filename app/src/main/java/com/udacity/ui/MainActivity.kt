@@ -29,8 +29,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        registerReceiver(receiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-
         createChannel(
                 getString(R.string.notification_channel_id),
                 getString(R.string.notification_channel_name)
@@ -38,6 +36,18 @@ class MainActivity : AppCompatActivity() {
 
         setupUI()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        registerReceiver(receiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        unregisterReceiver(receiver)
     }
 
     private fun setupUI() {

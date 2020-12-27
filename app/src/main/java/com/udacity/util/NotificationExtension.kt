@@ -8,7 +8,6 @@ import android.os.Bundle
 import androidx.core.app.NotificationCompat
 import com.udacity.R
 import com.udacity.ui.DetailActivity
-import com.udacity.ui.MainActivity
 
 val NOTIFICATION_ID = 11
 val DOWNLOAD_FILENAME = "filename"
@@ -35,7 +34,7 @@ fun NotificationManager.sendNotification(applicationContext: Context, bundle: Bu
         .setContentText(applicationContext.getString(R.string.downloaded))
         .setContentIntent(contentPendingIntent)
         .setAutoCancel(true)
-        .addAction(R.drawable.ic_baseline_cloud_download_24, "Download Status", contentPendingIntent)
+        .addAction(R.drawable.ic_baseline_cloud_download_24, applicationContext.getString(R.string.check_status), contentPendingIntent)
         .setPriority(NotificationCompat.PRIORITY_HIGH)
 
     notify(NOTIFICATION_ID, builder.build())

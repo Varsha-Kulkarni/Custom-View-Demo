@@ -2,7 +2,6 @@ package com.udacity.ui
 
 import android.app.DownloadManager
 import android.app.NotificationManager
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.udacity.R
@@ -32,10 +31,10 @@ class DetailActivity : AppCompatActivity() {
             tv_filename.text = filename
             when (status) {
                 DownloadManager.STATUS_SUCCESSFUL -> {
-                    tv_status.text = "Successful"
+                    tv_status.text = getString(R.string.success_status)
                 }
                 DownloadManager.STATUS_FAILED -> {
-                    tv_status.text = "Failed"
+                    tv_status.text = getString(R.string.failure_status)
                     tv_status.setTextColor(getColor(R.color.colorFailed))
                 }
             }
