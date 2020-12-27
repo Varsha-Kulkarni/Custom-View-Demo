@@ -56,30 +56,30 @@
 
     </RadioGroup>
 
-    <Button
-        android:id="@+id/custom_button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="24dp"
-        android:text="Download"
-        app:layout_constraintTop_toBottomOf="@id/rg_load_options"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-<!--    <com.udacity.ui.LoadingButton-->
+<!--    <Button-->
 <!--        android:id="@+id/custom_button"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="50dp"-->
 <!--        android:layout_margin="24dp"-->
-<!--        app:textColor="@color/white"-->
-<!--        app:defaultColor="@color/colorPrimary"-->
-<!--        app:circularProgressColor="@color/colorAccent"-->
-<!--        app:progressColor="@color/colorPrimaryDark"-->
+<!--        android:text="Download"-->
 <!--        app:layout_constraintTop_toBottomOf="@id/rg_load_options"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+    <com.udacity.ui.LoadingButton
+        android:id="@+id/custom_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="24dp"
+        app:textColor="@color/white"
+        app:defaultColor="@color/colorPrimary"
+        app:circularProgressColor="@color/colorAccent"
+        app:progressColor="@color/colorPrimaryDark"
+        app:layout_constraintTop_toBottomOf="@id/rg_load_options"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

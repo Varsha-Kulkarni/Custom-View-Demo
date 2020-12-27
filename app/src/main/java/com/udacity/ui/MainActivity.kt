@@ -3,7 +3,6 @@ package com.udacity.ui
 import android.app.DownloadManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -13,7 +12,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat
 import com.udacity.R
 import com.udacity.util.DOWNLOAD_FILENAME
 import com.udacity.util.DOWNLOAD_STATUS
@@ -48,14 +46,17 @@ class MainActivity : AppCompatActivity() {
             when (rg_load_options.checkedRadioButtonId) {
                 R.id.rb_glide -> {
                     download(URL_GLIDE, getString(R.string.glide_option))
+                    custom_button.setLoadingButtonState(ButtonState.Loading)
                 }
 
                 R.id.rb_udacity -> {
                     download(URL_LOADAPP, getString(R.string.loadapp_option))
+                    custom_button.setLoadingButtonState(ButtonState.Loading)
                 }
 
                 R.id.rb_retrofit -> {
                     download(URL_RETROFIT, getString(R.string.retrofit_option))
+                    custom_button.setLoadingButtonState(ButtonState.Loading)
                 }
 
                 else -> {
@@ -68,6 +69,9 @@ class MainActivity : AppCompatActivity() {
 
     private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
+
+            custom_button.setLoadingButtonState(ButtonState.Completed)
+
             val id = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
 
             val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
@@ -76,11 +80,6 @@ class MainActivity : AppCompatActivity() {
             val query = id?.let { DownloadManager.Query().setFilterById(it) }
             val cursor = downloadManager.query(query)
             if(cursor.moveToFirst()){
-                val bytes_downloaded = cursor.getInt(cursor
-                        .getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR))
-                val bytes_total = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES))
-                val progress =  ((bytes_downloaded * 100L) / bytes_total)
-
                 val filename = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_TITLE))
                 val status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS))
                 val bundle = Bundle()
@@ -88,8 +87,7 @@ class MainActivity : AppCompatActivity() {
                 bundle.putInt(DOWNLOAD_STATUS, status)
 
                 notificationManager.cancelAll()
-                bundle?.let { notificationManager.sendNotification(applicationContext, it) }
-
+                notificationManager.sendNotification(applicationContext, bundle)
             }
         }
     }
