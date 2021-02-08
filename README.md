@@ -1,5 +1,5 @@
 # Advanced Android
-This app to downloads a file from the Internet by clicking on a custom-built button where:
+This app downloads a file from the Internet by clicking on a custom-built button where:
 
 width of the button gets animated from left to right
 text gets changed based on different states of the button
